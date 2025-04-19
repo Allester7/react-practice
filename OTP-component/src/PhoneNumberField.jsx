@@ -3,7 +3,7 @@ import ShowOtp from "./ShowOTP";
 
 const PhoneNumberField = () => {
   const [phoneNumber, setPhoneNumber] = useState();
-  const [showOTP, setShowOTP] = useState(true);
+  const [showOTP, setShowOTP] = useState(false);
   const [length, setLength] = useState();
   const handleChange = (e) => {
     const input = e.target.value.replace(/\D/g, "");
@@ -39,7 +39,8 @@ const PhoneNumberField = () => {
       </form>
       ) : (
         <>
-        <ShowOtp length={length} handleOTpSubmit={handleOTpSubmit} />
+        <div>OTP is sent to the mobile number:{phoneNumber}</div>
+        <ShowOtp length={length} handleOTpSubmit={handleOTpSubmit} setShowOTP={setShowOTP} setPhoneNumber={setPhoneNumber}/>
         </>
       )}
     </div>
